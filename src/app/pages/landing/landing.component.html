@@ -1,0 +1,99 @@
+<div class="container">
+  <button class="btn btn-primary" (click)="onToggle()">
+    {{ showForm ? "Close" : "Add Contact" }}
+  </button>
+
+  @if(showForm) {
+  <div class="px-4 py-5">
+    <div class="card col-md-5 mx-auto">
+      <h2 class="text-center my-3">Contact Form</h2>
+      <div class="card-body p-4">
+        <div class="form-group mb-3">
+          <label class="form-label">First Name</label>
+          <input class="form-control" type="text" [(ngModel)]="firstName" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label class="form-label">Last Name</label>
+          <input class="form-control" type="text" [(ngModel)]="lastName" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label class="form-label">Email</label>
+          <input class="form-control" type="email" [(ngModel)]="email" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label class="form-label">Phone</label>
+          <input class="form-control" type="number" [(ngModel)]="phone" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label class="form-label">Address</label>
+          <input class="form-control" type="text" [(ngModel)]="address" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label class="form-label">Gender</label>
+          <select class="form-control" [(ngModel)]="gender">
+            <option value="">Choose gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div class="d-grid">
+          <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+
+  <div class="card shadow-sm mt-4 col-md-5 mx-auto">
+    @if(message) {
+    <div class="p-3">
+      <div class="alert alert-success d-flex align-items-center" role="alert">
+        <div>{{ message }}</div>
+      </div>
+    </div>
+    }
+
+    <div class="card-body">
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th>Actions</th>
+            <th>Id</th>
+            <th>First name</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of users; track $index) {
+          <tr>
+            <td>
+              <div class="dropdown">
+                <button
+                  class="btn btn-primary btn-sm dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Actions
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">View profile</a></li>
+                  <li><a class="dropdown-item" href="#">Edit</a></li>
+                  <li><a class="dropdown-item" href="#">Delete</a></li>
+                </ul>
+              </div>
+            </td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstName }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
