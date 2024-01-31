@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserProfile } from '../../models/user';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css'
 })
@@ -65,5 +65,16 @@ export class LandingComponent {
 
   onNaviagte(): void {
     this.navigate.navigate(['/'])
+  }
+
+  onDelete(id:number): void {
+   const newUsers =  this.users.filter((user:UserProfile) => user.id !== id)
+
+   localStorage.setItem('users', JSON.stringify(newUsers))
+
+   if(localStorage['users']) {
+    this.users = JSON.parse(localStorage['users'])
+  }
+
   }
 }
