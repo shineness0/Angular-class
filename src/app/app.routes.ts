@@ -6,6 +6,10 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { privateRouteGuard } from './guards/private-route.guard';
+import { TemplateDrivenFormComponent } from './pages/template-driven-form/template-driven-form.component';
+import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.component';
+import { BehaviourSubjectParentComponent } from './pages/behaviour-subject-parent/behaviour-subject-parent.component';
 
 export const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -13,10 +17,13 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'template-form', component:TemplateDrivenFormComponent},
+  {path: 'reactive-form', component:ReactiveFormComponent},
+  {path: 'behaviour-subject', component: BehaviourSubjectParentComponent},
   {path: 'dashboard', children: [
     {path: '', component: DashboardComponent},
     {path: 'profile', component: ProfileComponent}
-  ]},
+  ], canActivate: [privateRouteGuard]},
   {path: 'profile/:id', component: ProfileComponent},
-  {path: '**', component: NotfoundComponent}
+  {path: '**', component: NotfoundComponent},
 ];

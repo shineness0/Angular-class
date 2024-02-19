@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="mb-3 text-center">Template Driven Form</h4>
+          <form>
+            <div class="form-group mb-3">
+              <label class="form-label">First name</label>
+              <input
+                type="text"
+                name="firstName"
+                #fname="ngModel"
+                [(ngModel)]="firstName"
+                [class.is-valid]="fname.valid"
+                [class.is-invalid]="fname.invalid && fname.dirty"
+                class="form-control"
+                minlength="5"
+                required
+              />
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label">City</label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                [(ngModel)]="city"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <div class="form-check is-invalid">
+                <input
+                  type="checkbox"
+                  name="isChecked"
+                  [(ngModel)]="isChecked"
+                  class="form-check-input"
+                  (click)="onChecked()"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Agree to our terms
+                </label>
+                <div class="invalid-feedback">Please agree to our terms</div>
+              </div>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary" (click)="onSubmit()">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

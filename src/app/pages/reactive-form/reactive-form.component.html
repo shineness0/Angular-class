@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="mb-3 text-center">Reactive Form</h4>
+          <form [formGroup]="formOne">
+            <div class="form-group mb-3">
+              <label class="form-label">First name</label>
+              <input
+                type="text"
+                name="firstName"
+                class="form-control"
+                formControlName="firstName"
+                [class.is-valid]="
+                  formOne.get('firstName')?.valid &&
+                  formOne.get('firstName')?.dirty
+                "
+                [class.is-invalid]="
+                  formOne.get('firstName')?.invalid &&
+                  formOne.get('firstName')?.dirty
+                "
+              />
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label class="form-label">Email</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                class="form-control"
+                formControlName="email"
+                [class.is-valid]="
+                  formOne.get('email')?.valid && formOne.get('email')?.dirty
+                "
+                [class.is-invalid]="
+                  formOne.get('email')?.invalid && formOne.get('email')?.dirty
+                "
+              />
+              <div class="invalid-feedback">Invalid email</div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                formControlName="password"
+                [class.is-valid]="
+                  formOne.get('password')?.valid &&
+                  formOne.get('password')?.dirty
+                "
+                [class.is-invalid]="
+                  formOne.get('password')?.invalid &&
+                  formOne.get('password')?.dirty
+                "
+              />
+              <div class="invalid-feedback">
+                Password must be atleat 5 characters
+              </div>
+            </div>
+
+            <!-- <div class="form-group mb-3">
+              <div class="form-check is-invalid">
+                <input
+                  type="checkbox"
+                  name="isChecked"
+                  [(ngModel)]="isChecked"
+                  class="form-check-input"
+                  (click)="onChecked()"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Agree to our terms
+                </label>
+                <div class="invalid-feedback">Please agree to our terms</div>
+              </div>
+            </div> -->
+            <div class="d-grid">
+              <button
+                class="btn btn-primary"
+                (click)="onSubmit()"
+                [disabled]="
+                  formOne.get('password')?.invalid ||
+                  formOne.get('firstName')?.invalid ||
+                  formOne.get('email')?.invalid
+                "
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
