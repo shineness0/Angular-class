@@ -1,0 +1,12 @@
+<div class="container">
+  <p><strong>Reciever:</strong> {{ response }}</p>
+  <div class="col-md-5">
+    <input class="form-control" type="text" [(ngModel)]="text" />
+    <div class="btn btn-primary my-3" (click)="send()">Send</div>
+  </div>
+
+  <app-event-child
+    [recieveText]="newText"
+    (eventEmit)="recieveResponse($event)"
+  ></app-event-child>
+</div>

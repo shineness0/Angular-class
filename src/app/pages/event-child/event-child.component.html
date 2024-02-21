@@ -1,0 +1,8 @@
+<p>event-child works!</p>
+<div class="container">
+  <p>{{ recieveText }}</p>
+  <div class="col-md-5">
+    <input class="form-control" type="text" [(ngModel)]="sendResponse" />
+    <div class="btn btn-primary my-3" (click)="send()">Send</div>
+  </div>
+</div>

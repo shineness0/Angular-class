@@ -11,6 +11,7 @@ import { TemplateDrivenFormComponent } from './pages/template-driven-form/templa
 import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.component';
 import { BehaviourSubjectParentComponent } from './pages/behaviour-subject-parent/behaviour-subject-parent.component';
 import { PipeComponent } from './pages/pipe/pipe.component';
+import { EventParentComponent } from './pages/event-parent/event-parent.component';
 
 export const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -22,6 +23,7 @@ export const routes: Routes = [
   {path: 'reactive-form', component:ReactiveFormComponent},
   {path: 'behaviour-subject', component: BehaviourSubjectParentComponent},
   {path: 'pipe', component: PipeComponent},
+  {path: 'event-emmiter', component: EventParentComponent},
   {path: 'dashboard', children: [
     {path: '', component: DashboardComponent},
     {path: 'profile', component: ProfileComponent}
