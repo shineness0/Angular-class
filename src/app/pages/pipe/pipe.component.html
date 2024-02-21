@@ -1,1 +1,62 @@
-<p>pipe works!</p>
+<div class="container">
+  <p>pipe works!</p>
+  {{ "sunday" | uppercase }}
+  {{ "SUNDAY" | lowercase }}
+  <div>
+    {{ date | date }}
+  </div>
+  <div>
+    {{ date | date : "short" }}
+  </div>
+  <div>
+    {{ date | date : "long" }}
+  </div>
+  <div>
+    {{ date | date : "full" }}
+  </div>
+  <div>
+    {{ date | date : "medium" }}
+  </div>
+  <div>
+    {{ date | date : "shortTime" }}
+  </div>
+  <div>
+    {{ date | date : "longTime" }}
+  </div>
+  <div>
+    {{ date | date : "fullTime" }}
+  </div>
+  <div>
+    {{ date | date : "shortDate" }}
+  </div>
+  <div>
+    {{ date | date : "longDate" }}
+  </div>
+  <div>
+    {{ date | date : "fullDate" }}
+  </div>
+  <div>
+    {{ date | date : "d/M/Y" }}
+  </div>
+  <div>
+    {{ 10000 | currency }}
+  </div>
+  <div>
+    {{ 10000 | currency : "EUR" }}
+  </div>
+  <div>
+    {{ 10000 | currency : "NGN" : "symbol-narrow" }}
+  </div>
+  <div>
+    {{ "Investment" | slice : 2 : 6 }}
+  </div>
+  <div>
+    {{ "information" | slice : 2 : 6 }}, {{ "information" | slice : 0 : 6 }},
+    {{ "information" | slice : 2 }}, {{ "information" | slice : 5 : 8 }},
+    {{ "information" | slice : 0 : 4 }}, {{ "information" | slice : 0 : 2 }},
+    {{ "information" | slice : 2 : 5 }},
+  </div>
+  <div>
+    {{ 2 / 4 | percent }}
+  </div>
+</div>
